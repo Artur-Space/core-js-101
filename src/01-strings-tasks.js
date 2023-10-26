@@ -178,8 +178,8 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  const emails = str.split(';').map((email) => email.trim());
-  return emails;
+  // const emails = str.split(';').map((email) => email.trim());
+  return str.split(';');
 }
 
 /**
@@ -205,8 +205,15 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const horizontalBorder = '─'.repeat(width - 2);
+  const topRow = `┌${horizontalBorder}┐\n`;
+  const middleRow = `│${' '.repeat(width - 2)}│\n`;
+  const bottomRow = `└${horizontalBorder}┘\n`;
+
+  const rectangle = topRow + middleRow.repeat(height - 2) + bottomRow;
+
+  return rectangle;
 }
 
 
